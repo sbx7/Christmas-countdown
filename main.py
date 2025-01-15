@@ -12,11 +12,15 @@ def play_sound():
 
 def get_events():
     list_events=[]
-    with open(events) as file:
+    with open(events) as file: # Extracts events from event file
         for line in file:
-            line=line.rstrip('\n')
-            current_event=line.split('.')
-            
+            line=line.rstrip('\n') # Gets rid of the newline character
+            current_event=line.split('.') # Chops up the name from the date (name.#/#/##)
+            event_date = datetime.strptime(current_event[1], '%d/%m/%y'.date)
+            current_event[1] = event_date
+            list_events.append(current_event)
+    return list_events
+# idk whats happening lines 19-21 im just reading a book
 
 # Window init
 root = Tk()
