@@ -22,6 +22,7 @@ def get_events():
     return list_events
 # idk whats happening lines 19-21 im just reading a book
 
+
 # Window init
 root = Tk()
 c = Canvas(root, width=800, height=800, bg='red') # Will change reslution later 
@@ -39,3 +40,4 @@ c.create_text(100, 50, anchor='w', fill='white', font='Arial 28 bold', text='Chr
 
 print("Done loading")
 root.mainloop()
+playsound("audio/crisler.wav")
