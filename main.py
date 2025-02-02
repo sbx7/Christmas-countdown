@@ -6,7 +6,7 @@ import threading
 
 
 def play_sound():
-    # Play sound in a separate thread
+    # Used to play the sound in a separate thread
     playsound("audio/bells.wav")
 
 
@@ -31,13 +31,14 @@ root.title("Christmas Countdown")
 root.iconbitmap("window_icon.ico")
 c.pack()
 
-# Start the sound playback in a new thread
+# Start the sound in a new thread
 sound_thread = threading.Thread(target=play_sound)
 sound_thread.start()
 
-#Text creation
+#Text init
 c.create_text(100, 50, anchor='w', fill='white', font='Arial 28 bold', text='Christmas countdown🎄')
 
 print("Done loading")
 root.mainloop()
+sound_thread.join()
 playsound("audio/crisler.wav")
