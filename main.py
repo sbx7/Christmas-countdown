@@ -1,6 +1,6 @@
 print("Loading...")
 from tkinter import Tk, Canvas
-from datetime import date, datetime
+import datetime
 from playsound3 import playsound
 import threading
 
@@ -9,23 +9,15 @@ def play_sound():
     # Used to play the sound in a separate thread
     playsound("audio/bells.wav")
 
-
-def get_events():
-    list_events=[]
-    with open(events) as file: # Extracts events from event file
-        for line in file:
-            line=line.rstrip('\n') # Gets rid of the newline character
-            current_event=line.split('.') # Chops up the name from the date (name.#/#/##)
-            event_date = datetime.strptime(current_event[1], '%d/%m/%y'.date)
-            current_event[1] = event_date
-            list_events.append(current_event)
-    return list_events
-# idk whats happening lines 19-21 im just reading a book
-
+# Date Calc
+today = datetime.date.today()
+future = datetime.date(2025,12,25)
+diff = future - today
+# print (diff.days) is the magic word
 
 # Window init
 root = Tk()
-c = Canvas(root, width=800, height=800, bg='red') # Will change reslution later 
+c = Canvas(root, width=600, height=400, bg='red') # Will change reslution later 
 root.resizable(False, False)
 root.title("Christmas Countdown")
 root.iconbitmap("window_icon.ico")
@@ -36,7 +28,7 @@ sound_thread = threading.Thread(target=play_sound)
 sound_thread.start()
 
 #Text init
-c.create_text(100, 50, anchor='w', fill='white', font='Arial 28 bold', text='Christmas countdown🎄')
+c.create_text(300, 50, anchor='center', fill='white', font='Arial 28 bold', text='Cristmas Countdown')
 
 print("Done loading")
 root.mainloop()
