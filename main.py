@@ -29,6 +29,8 @@ sound_thread.start()
 
 #Text init
 c.create_text(300, 50, anchor='center', fill='white', font='Arial 28 bold', text='Cristmas Countdown')
+c.create_text(300, 200, anchor='center', fill='white', font='Arial 56 bold', text=diff.days)
+c.create_text(300, 275, anchor='center', fill='white', font='Arial 18 bold', text='Days until Christmas!')
 
 print("Done loading")
 root.mainloop()
