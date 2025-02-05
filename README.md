@@ -1,10 +1,6 @@
 # Christmas countdown
 This is a simple christmas countdown program in Python
 
-⚠️ In active development, not really functional yet.
-
-[Original code from this book](https://www.dk.com/us/book/9781465461889-coding-projects-in-python/)
-
 ### Modules reqiured: playsound3
 Requires a CPU with a minimum of 2 threads/cores
 
